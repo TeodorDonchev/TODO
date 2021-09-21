@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TODO List</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://cdnout.com/jquery/" type="text/javascript"></script>
+    <script type='text/javascript' src='/lib/knockout-3.5.1.js'></script>
+    <script type='text/javascript' src='/lib/MooTools-Core-1.6.0.js'></script>
+</head>
+
+<body data-bind="with: dataContext()">
+
+    <div class="header" data-bind="template: {name: $parent.currentVM}">
+        
+    </div>
+
+    <div class="title-container" data-bind="visible:currentTemplate() === 'archived-tasks-template'">
+        <span class="task-title">ARCHIVE</span>
+    </div>
+
+    <div class="title-container" data-bind="visible: currentTemplate() === 'active-tasks-template'">
+        <span class="task-title">NEW</span>
+        <span class="task-title">IN-PROGRESS</span>
+        <span class="task-title">FINISHED</span>
+    </div>
+
+    <!-- <div class="archived-tasks-container" data-bind="with: archivedTasks">
+
+    </div> -->
+
+    <div class="tasks-container" data-bind="template: {name: currentTemplate}">
+
+    </div>
+    <script type="text/html" id="tasksVM">
+        <h1 class="title">TODO LIST</h1>
+        <button class="archive-btn"
+                data-bind="click:goToArchive">
+            Archive
+        </button>
+        <div class="form-container">
+            <form data-bind="submit: addTask" class="add-task-form">
+                <span class="add-task-text">Add Task:</span>
+                <input class="add-task-input" data-bind="value: newTaskText"
+                       placeholder="Type your task here..." />
+                <button class="add-task-btn" type="submit">Add</button>
+            </form>
+        </div>
+    </script>
+
+    <script type="text/html" id="archivedTasksVM">
+        <h1 class="title">TODO LIST</h1>
+        <button class="tasks-btn"
+                data-bind="click: goToTasks">
+            Tasks
+        </button>
+    </script>
+
+    <script type="text/html" id="archived-tasks-template">
+        <div class="archived-task-container">
+            <h3 class="no-elements-text" data-bind="visible: $parent.tasks().length == 0">Nothing to show...</h3>
+            <ul class="in-progress-tasks"
+                data-bind="foreach: $parent.tasks, visible: $parent.tasks().length > 0">
+                <input class="task-text" data-bind="value: title" />
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/html" id="active-tasks-template">
+        <div class="new-tasks-container">
+            <h3 class="no-elements-text" data-bind="visible: newTasks().length == 0">Nothing to show...</h3>
+            <ul class="new-tasks" data-bind="foreach: newTasks">
+                <input class="task-text" data-bind="value: title" />
+                <div class="btn-container">
+                    <button class="move-to-inprogress-btn" data-bind="click: $parent.moveToInProgress">In-Progress</button>
+                    <button class="move-to-finished-btn" data-bind="click: $parent.moveToFinished">Finished</button>
+                    <button class="delete-btn" data-bind="click: $parent.deleteTask">Delete</button>
+                </div>
+            </ul>
+        </div>
+
+        <div class="in-progress-tasks-container">
+            <h3 class="no-elements-text" data-bind="visible: inProgressTasks().length == 0">
+                Nothing to show...
+            </h3>
+            <ul class="in-progress-tasks" data-bind="foreach: inProgressTasks">
+                <input class="task-text" data-bind="value: title" />
+                <div class="btn-container">
+                    <button class="move-to-new-btn" data-bind="click: $parent.moveToNew">New</button>
+                    <button class="move-to-finished-btn" data-bind="click: $parent.moveToFinished">Finished</button>
+                    <button class="delete-btn" data-bind="click: $parent.deleteTask">Delete</button>
+                </div>
+            </ul>
+        </div>
+
+
+        <div class="finished-tasks-container">
+            <h3 class="no-elements-text" data-bind="visible: finishedTasks().length == 0">Nothing to show...</h3>
+            <ul class="finished-tasks" data-bind="foreach: finishedTasks">
+                <input class="task-text" data-bind="value: title" />
+                <div class="btn-container">
+                    <button class="move-to-new-btn" data-bind="click: $parent.moveToNew">New</button>
+                    <button class="move-to-inprogress-btn" data-bind="click: $parent.moveToInProgress">In-Progress</button>
+                    <button class="delete-btn" data-bind="click: $parent.deleteTask">Delete</button>
+                </div>
+            </ul>
+        </div>
+
+    </script>
+
+
+    <script type="module" src="/js/ViewModels/MainVM.js"></script>
+    <!--<script type="module" src="/js/ViewModels/TaskVМ.js"></script>
+    <script type="module" src="/js/ViewModels/ArchivedTaskVM.js"></script>
+    <script type="module" src="/js/ViewModels/CommunicationFacade.js"></script>-->
+
+</body>
+
+</html>

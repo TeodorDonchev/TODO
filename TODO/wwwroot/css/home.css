@@ -1,0 +1,222 @@
+﻿body {
+    font-family: 'Dancing Script', cursive;
+    background-color: floralwhite;
+}
+
+.header {
+    padding: 1px;
+    width: 100%;
+    text-shadow: 1px 1px 1px #333;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 25px;
+    overflow: hidden;
+    background-image: linear-gradient(#a291f0, #bda7f8c7);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+}
+
+.archive-btn, .tasks-btn {
+    font-family: 'Dancing Script', cursive;
+    background-color: rgb(248, 132, 138);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(240, 136, 136);
+    margin-bottom: 2%;
+    font-size: 18px;
+}
+
+.tasks-btn {
+    background-color: #79cf7c;
+    padding: 12px;
+    border: 1px #79cf7c;
+}
+
+.archive-btn:hover {
+    cursor: pointer;
+    background-color: rgb(250, 124, 130);
+}
+
+.tasks-btn:hover {
+    cursor: pointer;
+    background-color: #60c763;
+    border: none;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2%;
+    letter-spacing: 2px;
+}
+
+.form-container {
+    display: inline;
+    width: 100%;
+}
+
+.add-task-form {
+    /* display: inline-block; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+}
+
+.add-task-text {
+    letter-spacing: 2px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.add-task-input {
+    /* padding: 10px; */
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 10px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.add-task-input:focus, .add-task-input:hover {
+    outline: none;
+    border: 1px solid black;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.add-task-btn {
+    width: 80px;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #9d7ef3ef;
+    border: 1px solid #8d6bebc7;
+    font-family: 'Dancing Script', cursive;
+    /*margin-left: 10px;*/
+}
+
+.add-task-btn:hover {
+    background-color: #8d6bebc7;
+    /* color: black; */
+    cursor: pointer;
+    border: none;
+}
+
+.task-text {
+    font-size: 18px;
+    width: 97%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 2%;
+    font-family: 'Dancing Script', cursive;
+}
+
+    .task-text:hover, .task-text:focus {
+        outline: none;
+        border: 1px solid black;
+        box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+.task-title {
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+.tasks-container, .title-container, .archived-tasks-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* clear: both; */
+}
+
+.tasks-container, .title-container {
+    margin-top: 2%;
+}
+
+
+.new-tasks-container, .in-progress-tasks-container, .finished-tasks-container, .archived-task-container {
+    width: 20%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #888888;
+    overflow: hidden;
+}
+
+
+.new-tasks-container {
+    border: 3px solid lightgreen;
+    /* float: left; */
+}
+
+.in-progress-tasks-container {
+    border: 3px solid lightblue;
+    /* margin: 0 auto; */
+}
+
+.finished-tasks-container {
+    border: 3px solid mediumpurple;
+    /* float: right; */
+}
+
+
+
+.new-tasks, .in-progress-tasks, .finished-tasks {
+    /*margin: 5 0 0 0;*/
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.btn-container {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10%;
+    justify-content: space-between;
+}
+
+.move-to-new-btn, .move-to-finished-btn, .move-to-inprogress-btn, .delete-btn {
+    width: 30%;
+    height: 30px;
+    /*padding: 2px;*/
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgb(66, 57, 57);
+}
+
+.move-to-new-btn {
+    background-color: #b1eebf;
+    border: 1px solid #6db97d;
+}
+
+.move-to-inprogress-btn {
+    background-color: rgb(195, 212, 243);
+    border: 1px solid rgb(122, 166, 248);
+}
+
+.move-to-finished-btn {
+    background-color: rgb(204, 184, 243);
+    border: 1px solid mediumpurple;
+}
+
+.delete-btn {
+    background-color: rgb(248, 166, 166);
+    border: 1px solid indianred;
+}
+
+.move-to-new-btn:hover, .move-to-inprogress-btn:hover, .move-to-finished-btn:hover, .delete-btn:hover {
+    background-color: floralwhite;
+    cursor: pointer;
+    color: black;
+}
+
+.no-elements-text {
+    text-align: center;
+}
